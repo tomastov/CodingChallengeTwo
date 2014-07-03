@@ -32,7 +32,7 @@
                 if (kvp.Value == frequency)
                 {
                     count++;
-                    //Console.WriteLine(kvp.Key);
+                    Console.WriteLine(kvp.Key);
                 }
             }
             return count;
@@ -40,7 +40,6 @@
 
         private void AddTLS(string tls)
         {
-            Console.WriteLine(tls);
             if (tlsCount.ContainsKey(tls))
             {
                 tlsCount[tls]++;
@@ -60,7 +59,7 @@
             {
                 if (Char.IsLetter(myText.GetChar(i)))
                 {
-                    tls = myText.GetChar(i) + tls;
+                    tls = Char.ToLower(myText.GetChar(i)) + tls;
                 }
                 else
                 {

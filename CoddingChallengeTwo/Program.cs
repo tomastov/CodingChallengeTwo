@@ -11,6 +11,7 @@
 
             var myText = new Text();
             myText.read(@"C:\Users\tov\Desktop\CodingChallengeTwo\CoddingChallengeTwo\tls.txt");
+            Console.WriteLine();
 
             var finder = new Finder();
             var numberOfTLS = finder.Search(myText, frequency);
