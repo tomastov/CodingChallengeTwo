@@ -7,19 +7,17 @@
     {
         private string myText;
 
-        public void read(string fileName)
+        public int Length
+        {
+            get { return myText.Length; }
+        }
+        public void Read(string fileName)
         {
             myText = File.ReadAllText(fileName);
         }
-
-        public int Length()
-        {
-            return myText.Length;
-        }
-
         public char GetChar(int i)
         {
-            if (i < 0 || i >= Length())
+            if (i < 0 || i >= Length)
             {
                 throw new ArgumentOutOfRangeException();
             }

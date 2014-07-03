@@ -7,10 +7,9 @@
     {
         private readonly Dictionary<string, int> tlsCount = new Dictionary<string, int>();
 
-        // Finds all TLS with given frequence in a given text
-        public int Search(Text myText, int frequency)
+        public int GetNumberOfTLSWithGivenFrequency(Text myText, int frequency)
         {
-            for (var i = 2; i < myText.Length(); i++)
+            for (var i = 2; i < myText.Length; i++)
             {
                 var tls = GetTLS(myText, i);
                 if (tls != "")
@@ -19,9 +18,7 @@
                 }
             }
 
-            var numberOfTlsWithFreq = FindWithFreq(frequency);
-
-            return numberOfTlsWithFreq;
+            return FindWithFreq(frequency);
         }
 
         private int FindWithFreq(int frequency)
@@ -67,6 +64,7 @@
                     break;
                 }
             }
+
             return tls;
         }
     }

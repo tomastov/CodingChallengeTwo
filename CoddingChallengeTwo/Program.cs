@@ -8,13 +8,13 @@
         {
             Console.Write("Enter a frequency: ");
             var frequency = Convert.ToInt32(Console.ReadLine());
-
-            var myText = new Text();
-            myText.read(@"C:\Users\tov\Desktop\CodingChallengeTwo\CoddingChallengeTwo\tls.txt");
             Console.WriteLine();
 
+            var myText = new Text();
+            myText.Read(@"C:\Users\tov\Desktop\CodingChallengeTwo\CoddingChallengeTwo\tls.txt");
+
             var finder = new Finder();
-            var numberOfTLS = finder.Search(myText, frequency);
+            var numberOfTLS = finder.GetNumberOfTLSWithGivenFrequency(myText, frequency);
 
             Console.Write("There are {0} TLSs that appear in this document exactly {1} times.", numberOfTLS, frequency);
             Console.ReadLine();
