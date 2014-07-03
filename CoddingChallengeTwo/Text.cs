@@ -15,12 +15,10 @@
 
         public char GetChar(int i)
         {
-            Console.WriteLine(i);
             if (i < 0 || i >= Length())
             {
                 throw new ArgumentOutOfRangeException();
             }
-
             return myText[i];
         }
     }

@@ -1,6 +1,5 @@
 ﻿namespace CoddingChallengeTwo
 {
-    using System;
     using System.Collections.Generic;
 
     public class Finder
@@ -10,21 +9,22 @@
         // Finds all TLS with given frequence in a given text
         public int Search(Text myText, int frequency)
         {
-            // for (var i = 2; i < myText.Length(); i++)
-            // {
-            var TLS = GetTLS(myText, 2);
-            Console.Write(TLS);
-            return 1;
+            for (var i = 2; i < myText.Length(); i++)
+            {
+                var TLS = GetTLS(myText, 2);
+                TLScount[TLS] = TLScount[TLS] + 1;
+            }
 
-            // }
+            return TLScount["abc"];
         }
 
-        private string GetTLS(Text myText, int i)
+        // Gets TLS from a given text ending at a given position
+        private string GetTLS(Text myText, int position)
         {
             var TLS = "";
-            for (var j = i; j >= j - 2; j--)
+            for (var i = position; i >= position - 2; i--)
             {
-                TLS = myText.GetChar(j) + TLS;
+                TLS = myText.GetChar(i) + TLS;
             }
             return TLS;
         }
