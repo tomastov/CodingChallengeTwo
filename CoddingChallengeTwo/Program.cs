@@ -15,20 +15,10 @@
             myText.read(fileName);
 
             var finder = new Finder();
-            finder.Search(myText, frequency);
-
-            var numberOfTLS = 10;
+            var numberOfTLS = finder.Search(myText, frequency);
 
             Console.Write("There are {0} TLSs that appear in this document exactly {1} times.", numberOfTLS, frequency);
             Console.ReadLine();
-        }
-    }
-
-    public class Text
-    {
-        public void read(string fileName)
-        {
-            throw new NotImplementedException();
         }
     }
 }
