@@ -10,13 +10,15 @@
             var frequency = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
 
-            var myText = new Text();
-            myText.Read(@"C:\Users\tov\Desktop\CodingChallengeTwo\CoddingChallengeTwo\tls.txt");
+            var fname = @"C:\Users\tov\Desktop\CodingChallengeTwo\CoddingChallengeTwo\tls.txt";
+
+            var reader = new Reader();
+            var myText = reader.ReadFromFile(fname);
 
             var finder = new Finder();
-            var numberOfTLS = finder.GetNumberOfTLSWithGivenFrequency(myText, frequency);
+            var numberOfTls = finder.GetNumberOfTlsWithGivenFrequency(myText, frequency);
 
-            Console.Write("There are {0} TLSs that appear in this document exactly {1} times.", numberOfTLS, frequency);
+            Console.Write("There are {0} TLSs that appear in this document exactly {1} times.", numberOfTls, frequency);
             Console.ReadLine();
         }
     }
