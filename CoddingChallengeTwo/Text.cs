@@ -4,7 +4,7 @@
 
     public class Text
     {
-        private string myText = "abc";
+        private string myText = "abcabc";
 
         public void read(string fileName) {}
 

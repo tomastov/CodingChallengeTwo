@@ -4,29 +4,41 @@
 
     public class Finder
     {
-        private Dictionary<string, int> TLScount;
+        private readonly Dictionary<string, int> tlsCount = new Dictionary<string, int>();
 
         // Finds all TLS with given frequence in a given text
         public int Search(Text myText, int frequency)
         {
             for (var i = 2; i < myText.Length(); i++)
             {
-                var TLS = GetTLS(myText, 2);
-                TLScount[TLS] = TLScount[TLS] + 1;
+                var tls = GetTLS(myText, 2);
+                AddTLS(tls);
             }
 
-            return TLScount["abc"];
+            return tlsCount["abc"];
+        }
+
+        private void AddTLS(string tls)
+        {
+            if (tlsCount.ContainsKey(tls))
+            {
+                tlsCount[tls]++;
+            }
+            else
+            {
+                tlsCount.Add(tls, 1);
+            }
         }
 
         // Gets TLS from a given text ending at a given position
         private string GetTLS(Text myText, int position)
         {
-            var TLS = "";
+            var tls = "";
             for (var i = position; i >= position - 2; i--)
             {
-                TLS = myText.GetChar(i) + TLS;
+                tls = myText.GetChar(i) + tls;
             }
-            return TLS;
+            return tls;
         }
     }
 }
