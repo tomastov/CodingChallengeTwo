@@ -1,5 +1,6 @@
 ﻿namespace CoddingChallengeTwo
 {
+    using System;
     using System.Collections.Generic;
 
     public class Finder
@@ -11,15 +12,35 @@
         {
             for (var i = 2; i < myText.Length(); i++)
             {
-                var tls = GetTLS(myText, 2);
-                AddTLS(tls);
+                var tls = GetTLS(myText, i);
+                if (tls != "")
+                {
+                    AddTLS(tls);
+                }
             }
 
-            return tlsCount["abc"];
+            var numberOfTlsWithFreq = FindWithFreq(frequency);
+
+            return numberOfTlsWithFreq;
+        }
+
+        private int FindWithFreq(int frequency)
+        {
+            var count = 0;
+            foreach (var kvp in tlsCount)
+            {
+                if (kvp.Value == frequency)
+                {
+                    count++;
+                    //Console.WriteLine(kvp.Key);
+                }
+            }
+            return count;
         }
 
         private void AddTLS(string tls)
         {
+            Console.WriteLine(tls);
             if (tlsCount.ContainsKey(tls))
             {
                 tlsCount[tls]++;
@@ -31,12 +52,21 @@
         }
 
         // Gets TLS from a given text ending at a given position
+        // If there is not TLS at this position returns ""
         private string GetTLS(Text myText, int position)
         {
             var tls = "";
             for (var i = position; i >= position - 2; i--)
             {
-                tls = myText.GetChar(i) + tls;
+                if (Char.IsLetter(myText.GetChar(i)))
+                {
+                    tls = myText.GetChar(i) + tls;
+                }
+                else
+                {
+                    tls = "";
+                    break;
+                }
             }
             return tls;
         }

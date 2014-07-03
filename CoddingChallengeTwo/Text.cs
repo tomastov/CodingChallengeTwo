@@ -1,12 +1,16 @@
 ﻿namespace CoddingChallengeTwo
 {
     using System;
+    using System.IO;
 
     public class Text
     {
-        private string myText = "abcabc";
+        private string myText;
 
-        public void read(string fileName) {}
+        public void read(string fileName)
+        {
+            myText = File.ReadAllText(fileName);
+        }
 
         public int Length()
         {
